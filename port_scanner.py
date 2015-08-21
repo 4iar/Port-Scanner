@@ -27,9 +27,11 @@ class Scan(object):
         self.scan_technique = scan_technique(target)
 
     def start(self):
+        """Start scanning"""
         self.scan_technique.start()
 
     def stop(self):
+        """Stop scanning"""
         self.scan_technique.stop()
 
     @property
