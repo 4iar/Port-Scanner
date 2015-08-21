@@ -1,5 +1,5 @@
 import socket
-from scan_techniques import TCP
+from scan_techniques.tcp_full_connect import TCPFullConnect
 
 
 class PortScanner(object):
@@ -12,7 +12,7 @@ class PortScanner(object):
     """
 
     def __init__(self):
-        self.scan_techniques =
+        self.scan_techniques = [TCPFullConnect]
 
 
 
