@@ -41,6 +41,11 @@ class Scan(object):
         """Get scan results"""
         return self.scan_technique.results
 
+    @property
+    def in_progress(self):
+        """Get state of scan"""
+        return self.scan_technique.in_progress
+
 
 
 class Target(object):
@@ -92,12 +97,11 @@ class ScanTechnique(object):
         self.target = target
         self.name = "Name of scan"
         self.description = "Description of scan"
+        self.in_progress = False
 
     def start(self):
         pass
 
     def stop(self):
         pass
-
-
 
