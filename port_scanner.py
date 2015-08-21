@@ -7,14 +7,22 @@ class PortScanner(object):
 
     Attributes:
         scan_techniques (ScanTechnique list): a list of all the available scan techniques
+        scan_queue (Scan list): a list of all the scans to process or that have been completed
 
-        --- think
     """
 
     def __init__(self):
         self.scan_techniques = [TCPFullConnect]
+        self.scan_queue = []
 
+    def enqueue_scan(self, target, scan_technique):
+        """Add a scan to the queue of pending scans"""
+        self.scan_queue.append(Scan(target, scan_technique))
 
+    def process_scan_queue(self):  # implement multithreading here?
+        """Start processing scans in the queue"""
+        for scan in self.scan_queue:
+            scan.start()
 
 
 class Scan(object):
