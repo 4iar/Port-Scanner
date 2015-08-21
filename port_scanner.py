@@ -1,3 +1,4 @@
+import socket
 
 
 class PortScanner(object):
@@ -35,8 +36,32 @@ class Target(object):
         results (dict): dict of results in the format port:state
     """
 
-    def __init__(self):
-        pass
+    def __init__(self, host, ports):
+        self.ip_address = self.translate(host)
+        self.ports = ports
+        self.results = {p: None for p in self.ports}
+
+    def translate(self, host):
+        """Translate a hostname into an IPv4 address
+
+        Translate the given hostname into an IPv4 address
+        or keep the hostname the same if it is already an
+        IPv4 address.
+
+        Args:
+            host (str): the hostname to translate
+        Returns:
+            ip (str): IPv4 address of the hostname
+        Raises:
+            socket.gaierror: hostname is invalid
+        """
+
+        try:
+            ip = socket.gethostbyname(host)
+        except socket.gaierror:
+            raise
+
+        return ip
 
 class ScanTechnique(object):
     """Scan technique to use against the target
