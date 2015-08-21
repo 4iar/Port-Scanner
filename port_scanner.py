@@ -39,7 +39,7 @@ class Scan(object):
     @property
     def results(self):
         """Get scan results"""
-        return self.scan_technique.results
+        return self.scan_technique.target.results
 
     @property
     def in_progress(self):
