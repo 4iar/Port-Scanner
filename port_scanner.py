@@ -23,8 +23,20 @@ class Scan(object):
         scan_technique (ScanTechnique): scan technique to use against target
     """
 
-    def __init__(self):
-        pass
+    def __init__(self, target, scan_technique):
+        self.scan_technique = scan_technique(target)
+
+    def start(self):
+        self.scan_technique.start()
+
+    def stop(self):
+        self.scan_technique.stop()
+
+    @property
+    def results(self):
+        """Get scan results"""
+        return self.scan_technique.results
+
 
 
 class Target(object):
@@ -73,5 +85,6 @@ class ScanTechnique(object):
     """
 
     def __init__(self, target):
+        self.results = "yay"
         pass
 
