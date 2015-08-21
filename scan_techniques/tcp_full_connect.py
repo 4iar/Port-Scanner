@@ -1,10 +1,10 @@
-from port_scanner import ScanTechnique
+from scan_techniques.scan_technique import ScanTechnique
 import socket
 
 class TCPFullConnect(ScanTechnique):
 
     def __init__(self, target):
-        super(TCPFullConnectScan, self).__init__(target)
+        super(TCPFullConnect, self).__init__(target)
         self.name = "TCP Full Connect"
         self.description = "soon"
 
