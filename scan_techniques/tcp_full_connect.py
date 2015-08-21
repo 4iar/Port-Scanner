@@ -1,6 +1,9 @@
 from scan_techniques.scan_technique import ScanTechnique
 import socket
 
+DEFAULT_TIMEOUT = 3  # add support for timeout options
+
+
 class TCPFullConnect(ScanTechnique):
 
     def __init__(self, target):
@@ -9,6 +12,7 @@ class TCPFullConnect(ScanTechnique):
         self.description = "soon"
 
     def start(self):
+        socket.setdefaulttimeout(DEFAULT_TIMEOUT)
         self.in_progress = True
         for p in self.target.ports:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
