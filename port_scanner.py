@@ -1,4 +1,5 @@
 import socket
+from scan_techniques import TCP
 
 
 class PortScanner(object):
@@ -11,7 +12,8 @@ class PortScanner(object):
     """
 
     def __init__(self):
-        pass
+        self.scan_techniques =
+
 
 
 
@@ -87,6 +89,15 @@ class ScanTechnique(object):
     """
 
     def __init__(self, target):
-        self.results = "yay"
+        self.target = target
+        self.name = "Name of scan"
+        self.description = "Description of scan"
+
+    def start(self):
         pass
+
+    def stop(self):
+        pass
+
+
 
