@@ -21,7 +21,9 @@ if args.list_scan_techniques:
         print(str.format("{}: {}", s.name, s.description))
     sys.exit()
 
-port_scanner.enqueue_scan(Target(args.ip, args.ports), TCPFullConnect)
+
+ports = [Port(p) for p in args.ports]
+port_scanner.enqueue_scan(Target(args.ip, ports), TCPFullConnect)
 port_scanner.process_scan_queue()
 print(port_scanner.scan_queue[0].results)
 
