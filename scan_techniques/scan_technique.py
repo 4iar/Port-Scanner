@@ -9,8 +9,8 @@ class ScanTechnique(object):
 
     def __init__(self, target):
         self.target = target
-        self.name = "Name of scan"
-        self.description = "Description of scan"
+        #self.name = "Name of scan"
+        #self.description = "Description of scan"
         self.in_progress = False
 
     def start(self):
