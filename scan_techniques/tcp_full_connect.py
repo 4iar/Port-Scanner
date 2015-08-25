@@ -5,11 +5,11 @@ DEFAULT_TIMEOUT = 3  # add support for timeout options
 
 
 class TCPFullConnect(ScanTechnique):
+    name = "TCP Full Connect"
+    description = "soon"
 
     def __init__(self, target):
         super(TCPFullConnect, self).__init__(target)
-        self.name = "TCP Full Connect"
-        self.description = "soon"
 
     def start(self):
         socket.setdefaulttimeout(DEFAULT_TIMEOUT)
