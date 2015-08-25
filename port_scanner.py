@@ -12,7 +12,7 @@ class PortScanner(object):
     """
 
     def __init__(self):
-        self.scan_techniques = [TCPFullConnect]
+        self.scan_techniques = {TCPFullConnect.name: TCPFullConnect}
         self.scan_queue = []
 
     def enqueue_scan(self, target, scan_technique):
