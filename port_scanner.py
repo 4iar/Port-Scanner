@@ -92,5 +92,17 @@ class Target(object):
 
         return ip
 
+class Port(int):
+    """Port"""
+
+    def __init__(self, port):
+        if not isinstance(port, int):
+            raise TypeError("Expected int for port")
+        if port > 65535:
+            raise ValueError("Port number cannot exceed 65535")
+        if port < 1:
+            raise ValueError("Port number cannot be less than 1")
+
+        super(int).__init__(int, port)
 
 
