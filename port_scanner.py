@@ -70,6 +70,30 @@ class Target(object):
         self.ports = ports
         self.results = {p: None for p in self.ports}
 
+
+
+class Port(int):
+    """Port"""
+
+    def __init__(self, port):
+        if not isinstance(port, int):
+            raise TypeError("Expected int for port")
+        if port > 65535:
+            raise ValueError("Port number cannot exceed 65535")
+        if port < 1:
+            raise ValueError("Port number cannot be less than 1")
+
+        super(int).__init__(int, port)
+
+
+
+class Host(str):
+    """Host"""
+
+    def __new__(self, hostname):
+        return super().__new__(str, self.translate(hostname))
+
+    @classmethod  # allows access to method before the object is set up
     def translate(self, host):
         """Translate a hostname into an IPv4 address
 
@@ -91,18 +115,3 @@ class Target(object):
             raise
 
         return ip
-
-class Port(int):
-    """Port"""
-
-    def __init__(self, port):
-        if not isinstance(port, int):
-            raise TypeError("Expected int for port")
-        if port > 65535:
-            raise ValueError("Port number cannot exceed 65535")
-        if port < 1:
-            raise ValueError("Port number cannot be less than 1")
-
-        super(int).__init__(int, port)
-
-
