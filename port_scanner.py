@@ -1,5 +1,5 @@
 import socket
-from scan_techniques.tcp_full_connect import ScanTechnique, TCPFullConnect
+from scan_techniques.tcp_full_connect import TCPFullConnect
 
 
 class PortScanner(object):
