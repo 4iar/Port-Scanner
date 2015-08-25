@@ -1,4 +1,4 @@
-from port_scanner import *
+from port_scanner import PortScanner, Target, Port, Host
 import argparse
 import sys
 
