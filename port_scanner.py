@@ -75,7 +75,7 @@ class Target(object):
 class Port(int):
     """Port"""
 
-    def __init__(self, port):
+    def __new__(self, port):
         if not isinstance(port, int):
             raise TypeError("Expected int for port")
         if port > 65535:
@@ -83,7 +83,7 @@ class Port(int):
         if port < 1:
             raise ValueError("Port number cannot be less than 1")
 
-        super(int).__init__(int, port)
+        return super().__new__(int, port)
 
 
 
