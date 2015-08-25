@@ -23,7 +23,7 @@ if args.list_scan_techniques:
 
 
 ports = [Port(p) for p in args.ports]
-port_scanner.enqueue_scan(Target(args.ip, ports), TCPFullConnect)
+port_scanner.enqueue_scan(Target(Host(args.ip), ports), TCPFullConnect)
 port_scanner.process_scan_queue()
 print(port_scanner.scan_queue[0].results)
 
