@@ -66,8 +66,8 @@ class Target(object):
     """
 
     def __init__(self, host, ports):
-        self.ip_address = host
-        self.ports = ports
+        self.ip_address = Host(host)
+        self.ports = set([Port(p) for p in ports])
         self.results = {p: None for p in self.ports}
 
 
