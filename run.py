@@ -1,4 +1,4 @@
-from port_scanner import PortScanner, Target, Port, Host
+from port_scanner import PortScanner, Target
 import argparse
 import sys
 
@@ -22,11 +22,9 @@ if args.list_scan_techniques:
     sys.exit()
 
 
-ports = [Port(p) for p in args.ports]
 scan_technique = port_scanner.scan_techniques['TCP Full Connect']
-port_scanner.enqueue_scan(Target(Host(args.ip), ports), scan_technique)
+port_scanner.enqueue_scan(Target(args.ip, args.ports), scan_technique)
 port_scanner.process_scan_queue()
 print(port_scanner.scan_queue[0].results)
 
 print(args)
-
